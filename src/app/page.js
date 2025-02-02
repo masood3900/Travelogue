@@ -8,7 +8,7 @@ export default function Home() {
         <img
           src="/us.jpg"
           alt="عکس ما"
-          className="w-32 h-32 rounded-full mx-auto"
+          className="w-40 h-32 rounded-full mx-auto"
         />
         <p className="mt-4 text-lg">سلام! ما  عاشق سفر و کشف دنیا هستیم. مااینجا تجربیات و خاطرات سفرهامون را ثبت می کنیم.</p>
       </section>

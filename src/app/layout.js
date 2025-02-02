@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Navbar } from "./navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,13 +21,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fa">
       <head>
-        <title>وب‌سایت سفرها</title>
+        <title>سفر نگار</title>
+        <link rel="icon" href="/favicon.ico" sizes="any"></link>
       </head>
       <body className="font-sans bg-gray-100 text-gray-800">
         {/* هدر */}
         <header className="bg-blue-500 text-white p-4 text-center">
-          <h1 className="text-3xl font-bold">سفر نگار🌍</h1>
-          <p>عاشقان سفر</p>
+          <Navbar/>
         </header>
 
         {/* محتوای صفحات */}
