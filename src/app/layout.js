@@ -18,11 +18,26 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+    <html lang="fa">
+      <head>
+        <title>وب‌سایت سفرها</title>
+      </head>
+      <body className="font-sans bg-gray-100 text-gray-800">
+        {/* هدر */}
+        <header className="bg-blue-500 text-white p-4 text-center">
+          <h1 className="text-3xl font-bold">سفر نگار🌍</h1>
+          <p>عاشقان سفر</p>
+        </header>
+
+        {/* محتوای صفحات */}
+        <main className="max-w-2xl mx-auto p-6">
+          {children}
+        </main>
+
+        {/* فوتر */}
+        <footer className="bg-blue-500 text-white p-4 text-center">
+          <p>© 2025 سفر نگار - تمامی حقوق محفوظ است</p>
+        </footer>
       </body>
     </html>
   );
