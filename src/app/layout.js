@@ -22,6 +22,9 @@ export default function RootLayout({ children }) {
     <html lang="fa">
       <head>
         <title>سفر نگار</title>
+        <meta name="description" content="در این وب‌سایت خاطرات و تجربیات من از سفر به جاهای دیدنی ایران و دیگر مقاصد گردشگری را بخوانید." />
+        <meta name="keywords" content="گزارش سفر
+،سفرنامه، سفر به کرمانشاه, گردشگری ایران, سفر به گیلان, سفرهای خاطره‌انگیز"  />
         <link rel="icon" href="/favicon.ico" sizes="any"></link>
       </head>
       <body className="font-sans bg-gray-100 text-gray-800">
