@@ -1,25 +1,39 @@
-import Image from "next/image";
+import Link from "next/link";
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
 
 export default function Home() {
-  return (
-    <section>
-      {/* معرفی کوتاه */}
-      <section id="about" className="text-center mt-6">
-        <img
-          src="/us.jpg"
-          alt="عکس ما"
-          className="w-40 h-32 rounded-full mx-auto"
-        />
-        <p className="mt-4 text-lg">سلام! ما  عاشق سفر و کشف دنیا هستیم. مااینجا تجربیات و خاطرات سفرهامون را ثبت می کنیم.</p>
-      </section>
+  // گرفتن لیست سفرها از فایل‌های Markdown یا JSON
+  const tripsDir = path.join(process.cwd(), "content/trips");
+  const tripFiles = fs.readdirSync(tripsDir);
 
-      {/* لیست سفرها */}
-      <section id="travels" className="mt-8">
-        <h2 className="text-2xl font-semibold">📍 سفرهای اخیر ما</h2>
-        <ul className="mt-4 space-y-2">
-          
-        </ul>
-      </section>
-    </section>
+  const trips = tripFiles.map((filename) => {
+    const filePath = path.join(tripsDir, filename);
+    const fileContent = fs.readFileSync(filePath, "utf8");
+    const { data } = matter(fileContent);
+    return {
+      slug: filename.replace(".md", ""),
+      title: data.title,
+      summary: data.summary,
+      image: data.image,
+    };
+  });
+
+  return (
+    <main>
+      <h1>سفرهای اخیر</h1>
+      <div>
+        {trips.map((trip) => (
+          <div key={trip.slug}>
+            <Link href={`/trip/${trip.slug}`}>
+              <img src={trip.image} alt={trip.title} className="w-25 h-20 rounded-full " />
+              <h2>{trip.title}</h2>
+              <p>{trip.summary}</p>
+            </Link>
+          </div>
+        ))}
+      </div>
+    </main>
   );
 }
